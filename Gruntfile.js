@@ -49,7 +49,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.registerTask('build',['clean:all','copy','compress','clean:temp']);
+    grunt.registerTask('build',['jshint','clean:all','copy','compress','clean:temp']);
 
 
 };
