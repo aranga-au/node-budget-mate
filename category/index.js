@@ -19,8 +19,6 @@ module.exports = function (dbcon) {
     function list(callback) {
         var con = dbcon.create();
         con.query("select * from category", function (err, rows) {
-            console.log(err);
-            console.log(rows);
             if (err) {
                 callback(err, []);
                 return;
@@ -36,9 +34,11 @@ module.exports = function (dbcon) {
         con.query("select * from category where id = " + id, function (err, rows) {
             if (err) {
                 callback(err, null);
+                return;
             }
-            if (rows.length === 0) {
+            if (rows === null || rows.length === 0) {
                 callback(null, null);
+                return;
             }
             callback(null, rows[0]);
 
@@ -48,11 +48,9 @@ module.exports = function (dbcon) {
 
     function searchByName(name, callback) {
         var con = dbcon.create();
-        console.log("findByName");
 
         con.query("select * from category where name like '" + name + "%'", function (err, rows) {
-            console.log(err);
-            console.log(rows);
+
             if (err) {
                 callback(err, null);
                 con.end();
@@ -79,8 +77,7 @@ module.exports = function (dbcon) {
         con.query("INSERT INTO category SET ?", category, function (err, resp) {
 
             if (err) {
-                console.log("Error !!");
-                console.log(err);
+
                 callback(err, null);
                 con.end();
                 return;

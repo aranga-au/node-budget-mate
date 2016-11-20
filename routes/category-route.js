@@ -1,4 +1,5 @@
 var config = require('../config');
+console.log(config);
 var dbcon = require('../utils/dbcon')(config);
 var category = require('../category')(dbcon);
 
@@ -35,13 +36,13 @@ module.exports =function (app){
     app.get('/category/{id}',function(req,resp){
 
         var id = +req.pathParams.id;
-        console.log(id);
+
         category.findById(id,function(err,result){
            if (err){
                resp.send(err);
                return;
            }
-           if (result.length === 0){
+           if (result === null || result.length === 0){
                resp.send("invalid categoryId",'404');
                return;
            }

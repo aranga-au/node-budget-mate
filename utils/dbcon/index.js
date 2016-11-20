@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 module.exports = function (config){
-
+    console.log("connection created ![db:"+config.database+",host:"+config.host);
     var ret = {
         create:create
     };
@@ -10,8 +10,7 @@ module.exports = function (config){
 
     function create(){
 
-        console.log(config);
-        var connection = mysql.createConnection(config);
+       var connection = mysql.createConnection(config);
 
         connection.connect(function(err){
             if(err){
