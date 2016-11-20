@@ -14,10 +14,32 @@ module.exports = function (grunt) {
         },
         copy: {
             main: {
-                src: ['**/*', '!**/grunt-**/**','!**/grunt/**'],
+                src: ['**/*', '!**/grunt-**/**','!**/grunt/**','!./.*md','!./.idea/**'],
                 expand: true,
                 cwd: '.',
-                dest: 'buid'
+                dest: 'build'
+            }
+        },
+        compress: {
+            main: {
+                options: {
+                    archive: './dist/node-budget-api.zip',
+                    mode : 'zip'
+                },
+                files: [{
+                    src: ['**/*'],
+                    cwd: './build/',
+                    expand: true
+                }]
+
+            }
+        },
+        clean: {
+            all: {
+                src: ['./build','./dist']
+            },
+            temp:{
+                src: ['./build']
             }
         }
     });
@@ -26,5 +48,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.registerTask('build',['clean:all','copy','compress','clean:temp']);
+
 
 };
