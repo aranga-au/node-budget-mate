@@ -1,5 +1,6 @@
-
-var category = requires('../category');
+var config = require('./config.js');
+var dbcon = require('../utils/dbcon')(config);
+var category = requires('../category')(dbcon);
 
 module.exports =function (app){
 
