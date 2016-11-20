@@ -35,7 +35,7 @@ module.exports =function (app){
                resp.send(err);
                return;
            }
-           if (result.length ==0){
+           if (result.length === 0){
                resp.send("invalid categoryId",'404');
                return;
            }
