@@ -1,6 +1,6 @@
-var config = require('./config.js');
+var config = require('../config');
 var dbcon = require('../utils/dbcon')(config);
-var category = requires('../category')(dbcon);
+var category = require('../category')(dbcon);
 
 module.exports =function (app){
 
@@ -22,6 +22,10 @@ module.exports =function (app){
         //list all
         category.list(function (err,results) {
 
+            if (err){
+                resp.send(err,'500');
+                return;
+            }
             resp.send(results);
 
         });
@@ -30,8 +34,9 @@ module.exports =function (app){
 
     app.get('/category/{id}',function(req,resp){
 
-
-        category.findById(req.pathParams.id,function(err,result){
+        var id = +req.pathParams.id;
+        console.log(id);
+        category.findById(id,function(err,result){
            if (err){
                resp.send(err);
                return;

@@ -14,7 +14,7 @@ module.exports = function (grunt) {
         },
         copy: {
             main: {
-                src: ['**/*', '!**/grunt-**/**','!**/grunt/**','!./.*md','!./.idea/**'],
+                src: ['**/*', '!**/grunt-**/**','!**/grunt/**','!*.md','!./.idea/**','!Gruntfile.js','!config-sample.js'],
                 expand: true,
                 cwd: '.',
                 dest: 'build'
