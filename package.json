@@ -1,0 +1,26 @@
+{
+  "name": "node-budget-mate",
+  "version": "0.0.1",
+  "description": "simple budgeting software for units (family /org)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aranga-au/node-budget-mate.git"
+  },
+  "keywords": [
+    "budget",
+    "aws",
+    "serverless",
+    "lambda",
+    "/function"
+  ],
+  "author": "Aranga Nanayakkara",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aranga-au/node-budget-mate/issues"
+  },
+  "homepage": "https://github.com/aranga-au/node-budget-mate#readme"
+}
