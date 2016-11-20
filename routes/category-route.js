@@ -50,4 +50,36 @@ module.exports =function (app){
         });
 
     });
+    app.post('/category',function(req,resp){
+
+        category.insert(req.body,function(err,c){
+           if (err){
+               resp.send(err,'500');
+               return;
+           }
+           resp.send(c,'201');
+        });
+    });
+    app.put('/category/{id}',function(req,resp){
+
+        var id = +req.pathParams.id;
+        category.update(req.body,function(err,c){
+            if (err){
+                resp.send(err,'500');
+                return;
+            }
+            resp.send(c);
+        });
+    });
+    app.delete('/category/{id}',function(req,resp){
+
+        var id = +req.pathParams.id;
+        category.delete(id,function(err,r){
+            if (err){
+                resp.send(err,'500');
+                return;
+            }
+            resp.send(r,'204');
+        });
+    });
 };

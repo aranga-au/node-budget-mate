@@ -115,8 +115,9 @@ module.exports = function (dbcon) {
         }
         var id = category.id;
         delete category.id;
+        console.log(category);
         var con = dbcon.create();
-        con.query("UPDATE category SET ? WHERE id = " + id, category, function (err, r) {
+        con.query("UPDATE category SET ? WHERE id = " + id, [category], function (err, r) {
             if (err) {
                 callback(err, {});
                 return;
