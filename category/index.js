@@ -53,7 +53,6 @@ module.exports = function (dbcon) {
 
             if (err) {
                 callback(err, null);
-                con.end();
                 return;
             }
             callback(err, rows);

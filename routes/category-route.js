@@ -10,13 +10,13 @@ module.exports =function (app){
         //list by name;
         if (req.params.name){
 
-            category.findByName(req.params.name,function(err,result){
+            console.log('search by name :'+req.params.name);
+            category.searchByName(req.params.name,function(err,result){
                if (err){
                    resp.send(err);
                    return;
                }
                resp.send(result);
-
             });
             return;
         }
