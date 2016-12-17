@@ -32,8 +32,8 @@
     "grunt-contrib-watch": "^1.0.0"
   },
   "dependencies": {
-    "aws-lambda-http": "^1.0.11",
-    "jwt-acl-manager": "^1.0.7",
+    "aws-lambda-http": "^1.0.12",
+    "jwt-acl-manager": "^1.0.12",
     "mysql": "^2.12.0"
   }
 }

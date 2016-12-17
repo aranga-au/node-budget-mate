@@ -7,5 +7,6 @@ module.exports={
     password: ENV.password || 'password',
     host: ENV.host||'localhost',
     port:ENV.port ||3306,
-    secret:ENV.secret || 'password'
+    secret:ENV.secret || 'password',
+    key:ENV.key||'password'
 };

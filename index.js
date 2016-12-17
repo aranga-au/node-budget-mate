@@ -1,10 +1,10 @@
 //config options
-var config = require('./config');
-var tokenOptions  = require('./token-options');
-var acl = require('./acl');
-var permisionDef = require('permision-def');
+var config = require('./config.js');
+var tokenOptions  = require('./token-options.js');
+var acl = require('./acl.js');
+var permisionDef = require('./permission.js');
 
-var aclManager = require('jwt-acl-manager')(config.key,tokenOptions,acl,permisionDef);
+var aclManager = require('jwt-acl-manager')(config.secret,tokenOptions,acl,permisionDef);
 var app = require('aws-lambda-http');
 
 //init routes
@@ -13,6 +13,11 @@ var authRoute = require('./routes/auth-route')(aclManager,app);
 
 
 app.use(aclManager.accessController());
+
+app.use(function(req,resp,next){
+console.log(req);
+next();
+});
 
 app.get('/',function(req,resp){
    resp.send("Restful API based on AWS Lambda");

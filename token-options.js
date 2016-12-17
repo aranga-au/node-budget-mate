@@ -3,3 +3,4 @@ var options={
     issuer:'urn:api:budget:acnonline.net',
    
 };
+module.exports= options;

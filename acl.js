@@ -1,7 +1,8 @@
 var acl ={
     '/category/*':{
-        'GET':['USER'],
+        'GET':['ADMIN'],
         'POST':['ADMIN']
     }
 
-}
+};
+module.exports = acl;

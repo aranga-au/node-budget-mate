@@ -6,7 +6,7 @@ var category = require('../category')(dbcon);
 module.exports =function (app){
 
     app.get('/category',function(req,resp){
-
+        
         //list by name;
         if (req.params.name){
 
