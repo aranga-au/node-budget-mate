@@ -4,7 +4,7 @@
 function User (args){
     var user={};
     user.userid = args.id || 'generated';
-    user.memberId = args
+    user.memberId = args.memberId||0;
     user.email = args.email || '';
     user.displayName = args.displayName || '';
     user.firstName = args.firstName || '';
