@@ -30,7 +30,7 @@ module.exports = function (aclManager, app) {
                 }
             });
             var payLoad = {
-                userId: userId,
+                userId: result.username,
                 loggedInAs: permissionDef.ADMIN,
             };
             
