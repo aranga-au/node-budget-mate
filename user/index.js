@@ -1,4 +1,3 @@
-var q = require('q');
 var bcrypt = require('bcrypt');
 var u = {
     username : "arangan",
