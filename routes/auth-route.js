@@ -33,14 +33,14 @@ module.exports = function (aclManager, app) {
                 userId: result.userId,
                 loggedInAs: permissionDef.ADMIN,
             };
-            
+            console.log(payLoad);
             aclManager.generateToken(payLoad).then(function (token) {
                 var tokenResponse={ 
                     access_token : token,
                     expire_in : 182728,
                     roles:roles
                 };    
-                resp.send();
+                resp.send(tokenResponse);
             }).catch(function (err) {
                 resp.send({ "name": "Auth", "message": "error while generating auth token" }, 500);
             });
