@@ -43,7 +43,9 @@ module.exports = function(dbcon){
                 
                 delete result[0].password; 
                 console.log(JSON.stringify(result[0]));
+                
                 callback(null,result[0]);
+                console.log("verify done !!");
             });
         });
     };

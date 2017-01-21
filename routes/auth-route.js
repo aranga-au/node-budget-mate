@@ -35,7 +35,9 @@ module.exports = function (aclManager, app) {
                 loggedInAs: permissionDef.ADMIN,
             };
             console.log(payLoad);
-              
+            resp.send("hellooooo");
+            
+            /*  
             aclManager.generateToken(payLoad).then(function (token) {
                 var tokenResponse={ 
                     access_token : token,
@@ -45,7 +47,7 @@ module.exports = function (aclManager, app) {
                 resp.send(tokenResponse);
             }).catch(function (err) {
                 resp.send({ "name": "Auth", "message": "error while generating auth token" }, 500);
-            });
+            });*/
         });
 
         
