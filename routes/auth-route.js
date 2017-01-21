@@ -44,9 +44,10 @@ module.exports = function (aclManager, app) {
             };
 
             aclManager.generateToken(payLoad).then(function (token) {
+                
                 var tokenResponse = {
                     access_token: token,
-                    expire_in: 182728,
+                    expire_in: 3600,
                     roles:roles
                 };
                 resp.send(tokenResponse);
