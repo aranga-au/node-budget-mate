@@ -48,6 +48,7 @@ module.exports = function(dbcon){
                 
             });
         });
+        con.end();
     };
 
     user.getInfo = function(userId,callback){
