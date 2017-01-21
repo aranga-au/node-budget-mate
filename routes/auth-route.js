@@ -8,7 +8,7 @@ module.exports = function (aclManager, app) {
         var args = req.body;
         console.log("REQUEST-AN:"+args);
         resp.send(args);
-        /*
+        
         if (!args | !args.username | !args.password) {
             resp.send({ "name": "Auth", "messaage": "cannot find username/password field" }, 400);
             return;
@@ -45,7 +45,7 @@ module.exports = function (aclManager, app) {
             });
         });
 
-        */
+        
 
 
     });
