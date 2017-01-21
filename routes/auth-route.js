@@ -40,6 +40,7 @@ module.exports = function (aclManager, app) {
 
             var payLoad = {
                 userId: result.userId,
+                displayName:result.displayName,
                 loggedInAs: result.permissionMask,
                 user_roles:roles
             };
