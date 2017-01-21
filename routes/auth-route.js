@@ -37,13 +37,6 @@ module.exports = function (aclManager, app) {
                 userId: result.userId,
                 loggedInAs: permissionDef.ADMIN,
             };
-            console.log(payLoad);
-            if (true) {
-                console.log(payLoad);
-                resp.send("hello");
-                return;
-            }
-            console.log("DONE");
 
             aclManager.generateToken(payLoad).then(function (token) {
                 var tokenResponse = {
