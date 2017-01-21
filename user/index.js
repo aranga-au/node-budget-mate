@@ -22,7 +22,7 @@ module.exports = function(dbcon){
             }
             var ret = null;
             if (result.length ===0){
-                callback({name:"VerifyUser",message:"invalid user name"});
+                callback(null,[]);
                 return;
             }
             console.log("pass 1");

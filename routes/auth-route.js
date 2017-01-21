@@ -20,7 +20,7 @@ module.exports = function (aclManager, app) {
 
         user.verifyUser(args.username, args.password, function (err, result) {
             if (err) {
-                resp.send({ "name": "Auth", "messaage": "Internal error", "err": err }, 500);
+                resp.send(err, 500);
                 return;
             }
             console.log("no errors");
