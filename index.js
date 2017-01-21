@@ -9,8 +9,9 @@ var app = require('aws-lambda-http');
 
 //init routes
 var catRoute = require('./routes/category-route')(app);
-var authRoute = require('./routes/auth-route')(aclManager,app);
+var userRoute = require('./routes/user-route')(app);
 
+var authRoute = require('./routes/auth-route')(aclManager,app);
 
 app.use(aclManager.accessController());
 

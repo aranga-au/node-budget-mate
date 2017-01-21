@@ -1,28 +1,50 @@
 var permissionDef = require('../permission.js');
+var config = require('../config');
+var dbcon = require('../utils/dbcon')(config);
+var user = require('../user')(dbcon);
 module.exports = function (aclManager, app) {
 
-    app.get('/auth', function (req, resp) {
-        resp.send({status:400,"message":"bad request-not supported","name":"Auth"});
-    });
     app.post('/auth', function (req, resp) {
         var args = req.body;
 
-        if (!args | !args.username| !args.password) {
-            resp.send({"name":"Auth","messaage":"cannot find username/password field"}, 400);
+        if (!args | !args.username | !args.password) {
+            resp.send({ "name": "Auth", "messaage": "cannot find username/password field" }, 400);
             return;
         }
         //give everyone admin rights :) and number .. should get from db or somthing
-        userId = '_aeerFdd'+ new Date().getTime();
-        var payLoad={
-            userId: userId,
-            loggedInAs : permissionDef.ADMIN
-        };
-        aclManager.generateToken(payLoad).then(function(token){
+        user.verifyUser(args.username, args.password, function (err, result) {
+            if (err ) {
+                resp.send({ "name": "Auth", "messaage": "Internal error" }, 500);
+                return;    
+            }
+            if (!result){
+                 resp.send({ "name": "Auth", "messaage": "Invalid username/password" }, 401);
+            }
+            var roles =[];
+            _.each(permissionDef,function(v,k){
+                if ((result.permission & v) >0){
+                    roles.push(k);
+                }
+            });
+            var payLoad = {
+                userId: userId,
+                loggedInAs: permissionDef.ADMIN,
+            };
             
-            resp.send({userId:payLoad.userId,auth_token:token});
-        }).catch(function(err){
-            resp.send({"name":"Auth","message":"error while generating auth token"},500);
+            aclManager.generateToken(payLoad).then(function (token) {
+                var tokenResponse={ 
+                    access_token : token,
+                    expire_in : 182728,
+                    roles:roles
+                };    
+                resp.send();
+            }).catch(function (err) {
+                resp.send({ "name": "Auth", "message": "error while generating auth token" }, 500);
+            });
         });
+
+
+
 
     });
 };
