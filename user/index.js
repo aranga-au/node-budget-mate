@@ -26,12 +26,12 @@ module.exports = function(dbcon){
                 return;
             }
             console.log("pass 1");
-            console.log("result "+result[0].password);
+
             if (!result[0].password){
                  callback({name:"VerifyUser",message:"no password in the file"});
                  return;
             }
-            console.log(password);
+           
             bcrypt.compare(password,result[0].password,function(err,same){
                 if (err){
                     callback(err,null);

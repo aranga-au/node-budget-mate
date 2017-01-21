@@ -14,6 +14,7 @@ module.exports = function (aclManager, app) {
             resp.send({ "name": "Auth", "messaage": "cannot find username/password field" }, 400);
             return;
         }
+        console.log("about to verify user");
         //give everyone admin rights :) and number .. should get from db or somthing
         user.verifyUser(args.username, args.password, function (err, result) {
             if (err ) {
@@ -34,8 +35,7 @@ module.exports = function (aclManager, app) {
                 loggedInAs: permissionDef.ADMIN,
             };
             console.log(payLoad);
-            resp.send(payLoad);
-            /*
+              
             aclManager.generateToken(payLoad).then(function (token) {
                 var tokenResponse={ 
                     access_token : token,
@@ -45,7 +45,7 @@ module.exports = function (aclManager, app) {
                 resp.send(tokenResponse);
             }).catch(function (err) {
                 resp.send({ "name": "Auth", "message": "error while generating auth token" }, 500);
-            });*/
+            });
         });
 
         
