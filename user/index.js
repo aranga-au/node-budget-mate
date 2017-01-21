@@ -31,7 +31,10 @@ module.exports = function(dbcon){
                  callback({name:"VerifyUser",message:"no password in the file"});
                  return;
             }
-           
+            var rec = result[0];
+            delete rec.password;
+            resp.send(rec);
+            /*
             bcrypt.compare(password,result[0].password,function(err,same){
                 if (err){
                     callback(err,null);
@@ -43,10 +46,10 @@ module.exports = function(dbcon){
                 
                 delete result[0].password; 
                 console.log(JSON.stringify(result[0]));
-                
+
                 callback(null,result[0]);
                 
-            });
+            });*/
         });
     };
 
