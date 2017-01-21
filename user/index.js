@@ -19,6 +19,10 @@ module.exports = function(dbcon){
                 return;
             }
             var ret = null;
+            if (resut.length ===0){
+                callback({name:"VerifyUser",message:"invalid user name"});
+                return;
+            }
             bcrypt.compare(password,result.password,function(err,same){
                 if (err){
                     callback(err,null);
