@@ -33,8 +33,7 @@ module.exports = function(dbcon){
             }
             var rec = result[0];
             delete rec.password;
-            callback(null,rec);
-            /*
+            
             bcrypt.compare(password,result[0].password,function(err,same){
                 if (err){
                     callback(err,null);
@@ -49,8 +48,9 @@ module.exports = function(dbcon){
 
                 callback(null,result[0]);
                 
-            });*/
+            });
         });
+        con.end();
     };
 
     user.getInfo = function(userId,callback){
