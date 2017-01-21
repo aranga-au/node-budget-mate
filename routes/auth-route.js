@@ -16,7 +16,7 @@ module.exports = function (aclManager, app) {
         }
         console.log("about to verify user");
         //give everyone admin rights :) and number .. should get from db or somthing
-         resp.send("helloooo");
+     
         
         user.verifyUser(args.username, args.password, function (err, result) {
 
@@ -40,6 +40,7 @@ module.exports = function (aclManager, app) {
             };
             console.log(payLoad);
             if (true){
+                 console.log(payLoad);
                 resp.send("hello");
                 return;
             }
