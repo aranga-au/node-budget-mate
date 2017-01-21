@@ -34,6 +34,7 @@
   "dependencies": {
     "aws-lambda-http": "^1.0.12",
     "jwt-acl-manager": "^1.0.12",
+    "lodash": "^4.17.4",
     "mysql": "^2.12.0"
   }
 }

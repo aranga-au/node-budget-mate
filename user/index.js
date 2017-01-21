@@ -40,7 +40,9 @@ module.exports = function(dbcon){
                     callback({name:"VerifyUser",message:"password doesnt match"},null);
                     return;
                 }
+                
                 delete result.password; 
+                console.log(JSON.stringify(resut));
                 callback(null,result);
             });
         });

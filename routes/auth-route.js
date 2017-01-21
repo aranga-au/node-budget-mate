@@ -1,4 +1,5 @@
 var permissionDef = require('../permission.js');
+var _ = require('loadash');
 var config = require('../config');
 var dbcon = require('../utils/dbcon')(config);
 var user = require('../user')(dbcon);
