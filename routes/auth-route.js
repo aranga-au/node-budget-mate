@@ -40,7 +40,7 @@ module.exports = function (aclManager, app) {
 
             var payLoad = {
                 userId: result.userId,
-                loggedInAs: permissionDef.ADMIN,
+                loggedInAs: result.permissionMask,
             };
 
             aclManager.generateToken(payLoad).then(function (token) {
