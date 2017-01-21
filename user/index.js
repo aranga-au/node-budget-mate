@@ -48,7 +48,7 @@ module.exports = function(dbcon){
         });
     };
     user.getInfo = function(userId,callback){
-        con.query("select * from user where userId= ?",[userId],function(err,resut){
+        con.query("select * from user where userId= ?",[userId],function(err,result){
             if (err){
                 console.log(err);
                 callback(err,null);
