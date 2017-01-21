@@ -63,7 +63,8 @@ module.exports = function(dbcon){
             }
             delete result.password; 
             callback(null,result[0]);
-        });     
+        });
+        con.end();     
     };
     return user;
 };
