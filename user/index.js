@@ -31,6 +31,7 @@ module.exports = function(dbcon){
                  callback({name:"VerifyUser",message:"no password in the file"});
                  return;
             }
+            console.log(password);
             bcrypt.compare(password,result[0].password,function(err,same){
                 if (err){
                     callback(err,null);

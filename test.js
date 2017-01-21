@@ -7,7 +7,7 @@ _.each(perm,function(v,k){
     console.log(k);
 });
 
-bcrypt.hash('cntrfs72',15,function(err,result){
+bcrypt.hash('cntrfs72',10,function(err,result){
     if (err){
         console.log(err);
         return ;
