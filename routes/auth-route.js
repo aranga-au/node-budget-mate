@@ -26,7 +26,7 @@ module.exports = function (aclManager, app) {
             console.log("no errors");
             if (!result) {
                 console.log("invalid user name");
-                resp.send({ "name": "Auth", "messaage": "Invalid username/password" }, 401);
+                resp.send({ "name": "Auth", "messaage": "Invalid username/password" }, 400);
                 return;
             }
 
@@ -41,6 +41,7 @@ module.exports = function (aclManager, app) {
             var payLoad = {
                 userId: result.userId,
                 loggedInAs: result.permissionMask,
+                user_roles:roles
             };
 
             aclManager.generateToken(payLoad).then(function (token) {
@@ -48,7 +49,6 @@ module.exports = function (aclManager, app) {
                 var tokenResponse = {
                     access_token: token,
                     expire_in: 3600,
-                    permission:roles
                 };
                 resp.send(tokenResponse);
             }).catch(function (err) {
