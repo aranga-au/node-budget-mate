@@ -14,19 +14,19 @@ module.exports = function(dbcon){
     user.verifyUser=function(userId,password,callback){
         var con = dbcon.create();
         
-        con.query("select * from user where userId= '"+userId+"'",function(err,resut){
+        con.query("select * from user where userId= '"+userId+"'",function(err,result){
             if (err){
                 console.log(err);
                 callback(err,null);
                 return;
             }
             var ret = null;
-            if (resut.length ===0){
+            if (result.length ===0){
                 callback({name:"VerifyUser",message:"invalid user name"});
                 return;
             }
             console.log("pass 1");
-            console.log("result "+resut[0].password);
+            console.log("result "+result[0].password);
             if (!result[0].password){
                  callback({name:"VerifyUser",message:"no password in the file"});
                  return;
