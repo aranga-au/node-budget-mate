@@ -1,4 +1,5 @@
 var bcrypt = require('bcrypt');
+//var _ = require('lodash');
 var u = {
     username : "arangan",
     displayName : "Jone (dummy user:no implementation)",
@@ -12,6 +13,7 @@ module.exports = function(dbcon){
 
     user.verifyUser=function(userId,password,callback){
         var con = dbcon.create();
+        
         con.query("select * from user where userId= '"+userId+"'",function(err,resut){
             if (err){
                 console.log(err);
