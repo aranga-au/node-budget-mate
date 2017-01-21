@@ -12,7 +12,7 @@ module.exports = function(dbcon){
 
     user.verifyUser=function(userId,password,callback){
         var con = dbcon.create();
-        con.query("select * from user where userId= ?",[userId],function(err,resut){
+        con.query("select * from user where userId= '"+userId+"'",function(err,resut){
             if (err){
                 console.log(err);
                 callback(err,null);
