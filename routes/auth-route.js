@@ -31,6 +31,11 @@ module.exports = function (aclManager, app) {
             }
 
             var roles = [];
+            _.each(permissionDef,function(v,k){
+                if ((v & result.permissionMas) > 0){
+                    roles.push(k);
+                }
+            });
             console.log("checking permission");
 
             var payLoad = {
@@ -41,7 +46,8 @@ module.exports = function (aclManager, app) {
             aclManager.generateToken(payLoad).then(function (token) {
                 var tokenResponse = {
                     access_token: token,
-                    expire_in: 182728
+                    expire_in: 182728,
+                    roles:roles
                 };
                 resp.send(tokenResponse);
             }).catch(function (err) {
