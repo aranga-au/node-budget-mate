@@ -32,7 +32,7 @@ module.exports = function (aclManager, app) {
 
             var roles = [];
             _.each(permissionDef,function(v,k){
-                if ((v & result.permissionMas) > 0){
+                if ((v & result.permissionMask) > 0){
                     roles.push(k);
                 }
             });
