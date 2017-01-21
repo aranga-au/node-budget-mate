@@ -25,7 +25,7 @@ module.exports = function (aclManager, app) {
             }
             console.log("no errors");
             if (!result) {
-                console.log("no result");
+                console.log("invalid user name");
                 resp.send({ "name": "Auth", "messaage": "Invalid username/password" }, 401);
                 return;
             }

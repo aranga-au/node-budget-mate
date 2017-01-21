@@ -22,7 +22,7 @@ module.exports = function(dbcon){
             }
             var ret = null;
             if (result.length ===0){
-                callback(null,[]);
+                callback(null,null);
                 return;
             }
             console.log("pass 1");
