@@ -8,8 +8,8 @@ module.exports = function (aclManager, app) {
     app.post('/auth', function (req, resp) {
         var args = req.body;
         console.log("REQUEST-AN:"+args);
-        
-        
+        resp.send("helloooo");
+        /*
         if (!args | !args.username | !args.password) {
             resp.send({ "name": "Auth", "messaage": "cannot find username/password field" }, 400);
             return;
@@ -44,7 +44,7 @@ module.exports = function (aclManager, app) {
             console.log(payLoad);
             resp.send("hellooooo");
 
-            /*  
+            
             aclManager.generateToken(payLoad).then(function (token) {
                 var tokenResponse={ 
                     access_token : token,
@@ -54,9 +54,8 @@ module.exports = function (aclManager, app) {
                 resp.send(tokenResponse);
             }).catch(function (err) {
                 resp.send({ "name": "Auth", "message": "error while generating auth token" }, 500);
-            });*/
-        });
-
+            });
+        });*/
         
 
 
