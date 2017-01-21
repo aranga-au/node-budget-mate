@@ -17,7 +17,7 @@ module.exports = function (aclManager, app) {
         console.log("about to verify user");
         //give everyone admin rights :) and number .. should get from db or somthing
          resp.send("helloooo");
-        /*
+        
         user.verifyUser(args.username, args.password, function (err, result) {
 
             if (err ) {
@@ -30,6 +30,7 @@ module.exports = function (aclManager, app) {
                  resp.send({ "name": "Auth", "messaage": "Invalid username/password" }, 401);
                  return;
             }
+
             var roles =[];
             console.log("checking permission");
             
@@ -38,6 +39,10 @@ module.exports = function (aclManager, app) {
                     roles.push(k);
                 }
             });
+            if (true){
+                resp.send("hello");
+                return;
+            }
             console.log(JSON.stringify(roles));
             var payLoad = {
                 userId: result.userId,
@@ -57,7 +62,7 @@ module.exports = function (aclManager, app) {
             }).catch(function (err) {
                 resp.send({ "name": "Auth", "message": "error while generating auth token" }, 500);
             });
-        });*/
+        });
         
 
 
