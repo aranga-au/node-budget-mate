@@ -14,7 +14,7 @@ module.exports = function(dbcon){
     user.verifyUser=function(userId,password,callback){
         var con = dbcon.create();
         
-        con.query("select * from user where userId= '"+userId+"'",function(err,result){
+        con.query("select * from user where userId= ?",[userId],function(err,result){
             if (err){
                 console.log(err);
                 callback(err,null);
@@ -47,7 +47,7 @@ module.exports = function(dbcon){
             });
         });
     };
-    user.getInfo = function(username,callback){
+    user.getInfo = function(userId,callback){
         con.query("select * from user where userId= ?",[userId],function(err,resut){
             if (err){
                 console.log(err);
