@@ -16,7 +16,7 @@ module.exports = function (aclManager, app) {
         //give everyone admin rights :) and number .. should get from db or somthing
         user.verifyUser(args.username, args.password, function (err, result) {
             if (err ) {
-                resp.send({ "name": "Auth", "messaage": "Internal error" }, 500);
+                resp.send({ "name": "Auth", "messaage": "Internal error" ,"err":err }, 500);
                 return;    
             }
             if (!result){
