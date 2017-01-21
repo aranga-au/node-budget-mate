@@ -37,7 +37,8 @@ module.exports = function(dbcon){
                     callback(err,null);
                 }
                 if (!same){
-                    callback({name:"VerifyUser",message:"password doesnt match"},null);
+                    console.log("password doesnt match");
+                    callback(null,null);
                     return;
                 }
                 
