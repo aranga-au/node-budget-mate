@@ -34,13 +34,6 @@ module.exports = function (aclManager, app) {
             var roles =[];
             console.log("checking permission");
             
-            _.each(permissionDef,function(v,k){
-                if ((result.permission & v) >0){
-                    roles.push(k);
-                }
-            });
-
-            console.log(JSON.stringify(roles));
             var payLoad = {
                 userId: result.userId,
                 loggedInAs: permissionDef.ADMIN,
