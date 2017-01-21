@@ -19,42 +19,8 @@ module.exports = function (aclManager, app) {
      
         
         user.verifyUser(args.username, args.password, function (err, result) {
-
-            if (err ) {
-                resp.send({ "name": "Auth", "messaage": "Internal error" ,"err":err }, 500);
-                return;    
-            }
-            console.log("no errors");
-            if (!result){
-                 console.log("no result");
-                 resp.send({ "name": "Auth", "messaage": "Invalid username/password" }, 401);
-                 return;
-            }
-
-            var roles =[];
-            console.log("checking permission");
-            
-            var payLoad = {
-                userId: result.userId,
-                loggedInAs: permissionDef.ADMIN,
-            };
-            console.log(payLoad);
-            if (true){
-                 console.log(payLoad);
-                resp.send("hello");
-                return;
-            }
-             console.log("DONE");
-            
-            aclManager.generateToken(payLoad).then(function (token) {
-                var tokenResponse={ 
-                    access_token : token,
-                    expire_in : 182728
-                };    
-                resp.send(tokenResponse);
-            }).catch(function (err) {
-                resp.send({ "name": "Auth", "message": "error while generating auth token" }, 500);
-            });
+             resp.send("heloo");
+        
         });
         
 
