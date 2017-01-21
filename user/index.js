@@ -41,9 +41,9 @@ module.exports = function(dbcon){
                     return;
                 }
                 
-                delete result.password; 
-                console.log(JSON.stringify(result));
-                callback(null,result);
+                delete result[0].password; 
+                console.log(JSON.stringify(result[0]));
+                callback(null,result[0]);
             });
         });
     };
@@ -54,8 +54,11 @@ module.exports = function(dbcon){
                 callback(err,null);
                 return;
             }
+            if (result.length===0){
+                 callback(null,null);
+            }
             delete result.password; 
-            callback(null,result);
+            callback(null,result[0]);
         });     
     };
     return user;
