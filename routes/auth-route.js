@@ -4,7 +4,7 @@ var config = require('../config');
 var dbcon = require('../utils/dbcon')(config);
 var user = require('../user')(dbcon);
 module.exports = function (aclManager, app) {
-
+    
     app.post('/auth', function (req, resp) {
         var args = req.body;
         console.log("REQUEST-AN:"+args);
@@ -34,6 +34,8 @@ module.exports = function (aclManager, app) {
                 loggedInAs: permissionDef.ADMIN,
             };
             console.log(payLoad);
+            resp.send(payLoad);
+            /*
             aclManager.generateToken(payLoad).then(function (token) {
                 var tokenResponse={ 
                     access_token : token,
@@ -43,7 +45,7 @@ module.exports = function (aclManager, app) {
                 resp.send(tokenResponse);
             }).catch(function (err) {
                 resp.send({ "name": "Auth", "message": "error while generating auth token" }, 500);
-            });
+            });*/
         });
 
         
