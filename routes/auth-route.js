@@ -8,14 +8,16 @@ module.exports = function (aclManager, app) {
     app.post('/auth', function (req, resp) {
         var args = req.body;
         console.log("REQUEST-AN:"+args);
-        resp.send("helloooo");
-        /*
+       
+        
         if (!args | !args.username | !args.password) {
             resp.send({ "name": "Auth", "messaage": "cannot find username/password field" }, 400);
             return;
         }
         console.log("about to verify user");
         //give everyone admin rights :) and number .. should get from db or somthing
+         resp.send("helloooo");
+        /*
         user.verifyUser(args.username, args.password, function (err, result) {
 
             if (err ) {
