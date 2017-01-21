@@ -55,7 +55,7 @@ module.exports = function(dbcon){
                 return;
             }
             delete result.password; 
-            callback(null,ret);
+            callback(null,result);
         });     
     };
     return user;
