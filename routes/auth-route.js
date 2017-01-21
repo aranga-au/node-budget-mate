@@ -39,24 +39,23 @@ module.exports = function (aclManager, app) {
                     roles.push(k);
                 }
             });
-            if (true){
-                resp.send("hello");
-                return;
-            }
+
             console.log(JSON.stringify(roles));
             var payLoad = {
                 userId: result.userId,
                 loggedInAs: permissionDef.ADMIN,
             };
             console.log(payLoad);
-            resp.send("hellooooo");
-
+            if (true){
+                resp.send("hello");
+                return;
+            }
+             console.log("DONE");
             
             aclManager.generateToken(payLoad).then(function (token) {
                 var tokenResponse={ 
                     access_token : token,
-                    expire_in : 182728,
-                    roles:roles
+                    expire_in : 182728
                 };    
                 resp.send(tokenResponse);
             }).catch(function (err) {
