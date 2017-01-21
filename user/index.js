@@ -42,7 +42,7 @@ module.exports = function(dbcon){
                 }
                 
                 delete result.password; 
-                console.log(JSON.stringify(resut));
+                console.log(JSON.stringify(result));
                 callback(null,result);
             });
         });
