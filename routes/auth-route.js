@@ -48,10 +48,7 @@ module.exports = function (aclManager, app) {
                 var tokenResponse = {
                     access_token: token,
                     expire_in: 3600,
-                    user_info:{
-                        roles:roles,
-                        displayName:result.displayName
-                    }    
+                    user_id:result.userId
                 };
                 resp.send(tokenResponse);
             }).catch(function (err) {

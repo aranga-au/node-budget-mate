@@ -2,6 +2,9 @@ var acl ={
     '/category/*':{
         'GET':['ADMIN'],
         'POST':['ADMIN']
+    },
+    '/user/profile':{
+        'GET':['USER']
     }
 
 };
