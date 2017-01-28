@@ -1,4 +1,5 @@
 var config = require('../config');
+var _ = require('lodash');
 console.log(config);
 var dbcon = require('../utils/dbcon')(config);
 var user = require('../user')(dbcon);
