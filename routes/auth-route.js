@@ -49,7 +49,7 @@ module.exports = function (aclManager, app) {
                     access_token: token,
                     expire_in: 3600,
                     user_info:{
-                        roles:result.roles,
+                        roles:roles,
                         displayName:result.displayName
                     }    
                 };
