@@ -1,7 +1,7 @@
 var config = require('../config');
 console.log(config);
 var dbcon = require('../utils/dbcon')(config);
-var user = require('./user')(dbcon);
+var user = require('../user')(dbcon);
 
 
 module.exports=function(app){
