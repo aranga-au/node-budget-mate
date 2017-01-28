@@ -15,6 +15,8 @@ module.exports = function (app) {
     app.get('/user/profile', function (req, resp) {
         console.log(req.jwtPayLoad.userId);
         console.log('/user/profile');
+        resp.send(req.jwtPayLoad);
+        /*
         user.getInfo(req.jwtPayLoad.userId, function (err, result) {
             if (err) {
                 console.log("err:user.getInfo", err);
@@ -33,7 +35,7 @@ module.exports = function (app) {
             delete result.permissionMask;
             result.roles = roles;
             resp.send(result);
-        });
+        });*/
     });
 
 
