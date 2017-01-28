@@ -54,6 +54,7 @@ module.exports = function(dbcon){
 
     user.getInfo = function(userId,callback){
         console.log("userId",userId);
+        var con = dbcon.create();
         con.query("select * from user where userId = ?",[userId],function(err,result){
             if (err){
                 console.log(err);
