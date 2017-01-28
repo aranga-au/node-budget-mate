@@ -65,7 +65,8 @@ module.exports = function(dbcon){
             if (result.length===0){
                  callback(null,null);
             }
-            delete result.password; 
+            delete result[0].password; 
+            
             callback(null,result[0]);
         });
         con.end();     
