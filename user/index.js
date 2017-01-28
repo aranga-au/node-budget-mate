@@ -59,6 +59,7 @@ module.exports = function(dbcon){
                 callback(err,null);
                 return;
             }
+            console.log("getInfo()",result);
             if (result.length===0){
                  callback(null,null);
             }

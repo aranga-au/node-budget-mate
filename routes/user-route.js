@@ -12,11 +12,14 @@ module.exports=function(app){
 
     app.get('/user/profile',function(req,resp){
           console.log(req.jwtPayLoad.userId);
-          
+          console.log('/user/profile');
           user.getInfo(req.jwtPayLoad.userId,function(err,result){
               if (err){
                   resp.send(err,500);
                   return;
+              }
+              if (!result){
+                  result = {};  
               }
               resp.send(result);
           });
