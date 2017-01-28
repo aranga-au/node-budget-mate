@@ -15,6 +15,7 @@ module.exports=function(app){
           console.log('/user/profile');
           user.getInfo(req.jwtPayLoad.userId,function(err,result){
               if (err){
+                  console.log("err:user.getInfo",err);
                   resp.send(err,500);
                   return;
               }
