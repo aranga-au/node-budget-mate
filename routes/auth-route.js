@@ -40,9 +40,7 @@ module.exports = function (aclManager, app) {
 
             var payLoad = {
                 userId: result.userId,
-                displayName:result.displayName,
                 loggedInAs: result.permissionMask,
-                user_roles:roles
             };
 
             aclManager.generateToken(payLoad).then(function (token) {
@@ -50,6 +48,10 @@ module.exports = function (aclManager, app) {
                 var tokenResponse = {
                     access_token: token,
                     expire_in: 3600,
+                    user_info:{
+                        roles:result.roles,
+                        displayName:result.displayName
+                    }    
                 };
                 resp.send(tokenResponse);
             }).catch(function (err) {
