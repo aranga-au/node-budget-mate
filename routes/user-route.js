@@ -11,8 +11,15 @@ module.exports=function(app){
     });
 
     app.get('/user/profile',function(req,resp){
-          console.log(req.jwtPayLoad);
-          resp.send(req.jwtPayLoad);
+          console.log(req.jwtPayLoad.userId);
+          
+          user.getInfo(req.jwtPayLoad.userId,function(err,result){
+              if (err){
+                  resp.send(err,500);
+                  return;
+              }
+              resp.send(result);
+          });
     });
 
 
